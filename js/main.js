@@ -10,27 +10,27 @@ window.onload = function() {
         let service = e.target.id;
         switch (service) {
             case "webDesign":
-                pictureOfService.style.backgroundImage = 'url("../src/img/web-design.jpg")';
+                pictureOfService.style.backgroundImage = 'url("../img/web-design.jpg")';
                 $('.service-text').load('txt/web-design.txt');
                 break;
             case "graphicDesign":
-                pictureOfService.style.backgroundImage = 'url("../src/img/graphic-design.jpg")';
+                pictureOfService.style.backgroundImage = 'url("../img/graphic-design.jpg")';
                 $('.service-text').load('txt/graphic-design.txt');
                 break;
             case "onlineSupport":
-                pictureOfService.style.backgroundImage = 'url("../src/img/online-support.jpg")';
+                pictureOfService.style.backgroundImage = 'url("../img/online-support.jpg")';
                 $('.service-text').load('txt/online-support.txt');
                 break;
             case "appDesign":
-                pictureOfService.style.backgroundImage = 'url("../src/img/app-design.jpg")';
+                pictureOfService.style.backgroundImage = 'url("../img/app-design.jpg")';
                 $('.service-text').load('txt/app-design.txt');
                 break;
             case "onlineMarketing":
-                pictureOfService.style.backgroundImage = 'url("../src/img/online-marketing.jpg")';
+                pictureOfService.style.backgroundImage = 'url("../img/online-marketing.jpg")';
                 $('.service-text').load('txt/online-marketing.txt');
                 break;
             case "seoService":
-                pictureOfService.style.backgroundImage = 'url("../src/img/seo-ready.jpg")';
+                pictureOfService.style.backgroundImage = 'url("../img/seo-ready.jpg")';
                 $('.service-text').load('txt/seo-service.txt');
                 break;
 
@@ -314,15 +314,31 @@ window.onload = function() {
 
 //***************************************** Masonry gallery *********************************************
 
-    $('.masonry-gallery').imagesLoaded(function () {
-        $('.masonry-gallery').masonry({
-            itemSelector: '.grid-item',
-            columnWidth: '.grid-sizer',
-            gutter: '.gutter-sizer',
-            percentPosition: true
+        $('.masonry-gallery').imagesLoaded(function () {
+            $('.masonry-gallery').masonry({
+                itemSelector: '.grid-item',
+                columnWidth: '.grid-sizer',
+                gutter: '.gutter-sizer',
+                percentPosition: true
+            });
         });
-    });
 
+
+
+    $('#loadMoreGallery').on('click', function () {
+        $(this).remove();
+        for (let i = 0; i < 3; i++) {
+            let newPic = $('<img>').attr('src', 'img/gallery/' + (10 + i) + '.jpg').addClass('grid-item');
+            newPic.insertAfter($($('.masonry-gallery').children().last())[0]);
+            newPic.imagesLoaded().progress(function(imgLoad, image) {
+                $('.masonry-gallery').masonry('appended', $(image.img));
+            });
+        }
+        $('body, html').animate({
+            scrollTop: $(document).scrollTop() + $(window).height() + 400
+        }, 1000);
+
+    });
 
 //****************************************** Modal window ***********************************************
 $('.purchase-button').on('click', function () {
