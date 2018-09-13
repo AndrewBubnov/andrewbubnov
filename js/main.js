@@ -10,27 +10,27 @@ window.onload = function() {
         let service = e.target.id;
         switch (service) {
             case "webDesign":
-                pictureOfService.style.backgroundImage = 'url("https://andrewbubnov.github.io/andrewbubnov/img/web-design.jpg")';
+                pictureOfService.style.backgroundImage = 'url("../src/img/web-design.jpg")';
                 $('.service-text').load('txt/web-design.txt');
                 break;
             case "graphicDesign":
-                pictureOfService.style.backgroundImage = 'url("https://andrewbubnov.github.io/andrewbubnov/img/graphic-design.jpg")';
+                pictureOfService.style.backgroundImage = 'url("../src/img/graphic-design.jpg")';
                 $('.service-text').load('txt/graphic-design.txt');
                 break;
             case "onlineSupport":
-                pictureOfService.style.backgroundImage = 'url("https://andrewbubnov.github.io/andrewbubnov/img/online-support.jpg")';
+                pictureOfService.style.backgroundImage = 'url("../src/img/online-support.jpg")';
                 $('.service-text').load('txt/online-support.txt');
                 break;
             case "appDesign":
-                pictureOfService.style.backgroundImage = 'url("https://andrewbubnov.github.io/andrewbubnov/img/app-design.jpg")';
+                pictureOfService.style.backgroundImage = 'url("../src/img/app-design.jpg")';
                 $('.service-text').load('txt/app-design.txt');
                 break;
             case "onlineMarketing":
-                pictureOfService.style.backgroundImage = 'url("https://andrewbubnov.github.io/andrewbubnov/img/online-marketing.jpg")';
+                pictureOfService.style.backgroundImage = 'url("../src/img/online-marketing.jpg")';
                 $('.service-text').load('txt/online-marketing.txt');
                 break;
             case "seoService":
-                pictureOfService.style.backgroundImage = 'url("https://andrewbubnov.github.io/andrewbubnov/img/seo-ready.jpg")';
+                pictureOfService.style.backgroundImage = 'url("../src/img/seo-ready.jpg")';
                 $('.service-text').load('txt/seo-service.txt');
                 break;
 
@@ -236,53 +236,66 @@ window.onload = function() {
     for (let i = 0; i < 12; i++) {
         draftArray.push(i);
     }
+
     $('.works-tab').on('click', function (e) {
-        if (e.target.id === 'all') {
+        if (this.id === 'all') {
             allWorks();
         } else {
             worksImageFill(1, 12, e.target.id, draftArray, 0);
         }
         $(this).addClass('works-active');
         $(this).siblings().removeClass('works-active');
-        activeWork = e.target.id;
+        activeWork = this.id;
     });
 
 
     $('#loadMore').on('click', function () {
-        for (let i = 0; i < 12; i++) {
-            let newDiv = $('<div></div>');
-            newDiv.on('mouseenter', onWorksHover);
-            newDiv.addClass('works-image').appendTo($('.works-container'));
-        }
+        if ($($('#loadMore'))[0].textContent === "+Load more") {
+            for (let i = 0; i < 12; i++) {
+                let newDiv = $('<div></div>');
+                newDiv.on('mouseenter', onWorksHover);
+                newDiv.addClass('works-image').appendTo($('.works-container'));
+            }
 
-        if (loadNumber < 3) {
-            let startNumber = 12 * loadNumber + 1;
-            let endNumber = startNumber + 11;
-            loadNumber++;
-            if (loadNumber === 3) {
-                $('#loadMore').remove();
+            if (loadNumber < 3) {
+                let startNumber = 12 * loadNumber + 1;
+                let endNumber = startNumber + 11;
+                loadNumber++;
+                if (loadNumber === 3) {
+                    $($('#loadMore'))[0].textContent = 'Hide';
+                }
+                switch (activeWork) {
+                    case ("all"):
+                        allWorks();
+                        break;
+                    case ("graphic-design"):
+                        activeWork = "web-design";
+                        worksImageFill(startNumber, endNumber, activeWork, draftArray, 0);
+                        break;
+                    case ("web-design"):
+                        activeWork = "landing-page";
+                        worksImageFill(startNumber, endNumber, activeWork, draftArray, 0);
+                        break;
+                    case ("landing-page"):
+                        activeWork = "wordpress";
+                        worksImageFill(startNumber, endNumber, activeWork, draftArray, 0);
+                        break;
+                    case ("wordpress"):
+                        activeWork = "graphic-design";
+                        worksImageFill(startNumber, endNumber, activeWork, draftArray, 0);
+                        break;
+                }
             }
-            switch (activeWork) {
-                case ("all"):
-                    allWorks();
-                    break;
-                case ("graphic-design"):
-                    activeWork = "web-design";
-                    worksImageFill(startNumber, endNumber, activeWork, draftArray, 0);
-                    break;
-                case ("web-design"):
-                    activeWork = "landing-page";
-                    worksImageFill(startNumber, endNumber, activeWork, draftArray, 0);
-                    break;
-                case ("landing-page"):
-                    activeWork = "wordpress";
-                    worksImageFill(startNumber, endNumber, activeWork, draftArray, 0);
-                    break;
-                case ("wordpress"):
-                    activeWork = "graphic-design";
-                    worksImageFill(startNumber, endNumber, activeWork, draftArray, 0);
-                    break;
+        } else {
+            $('.works-image-on-hover').addClass('invisible').appendTo('body');
+            for (let i = $('.works-image').length - 1; i >=12 ; i--) {
+                $($('.works-image'))[i].remove();
             }
+            loadNumber = 1;
+            $($('#loadMore'))[0].textContent = '+Load more';
+            $('body, html').animate({
+                scrollTop: $('#work').offset().top + 80
+            }, 1000);
         }
     });
 
