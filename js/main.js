@@ -10,27 +10,27 @@ window.onload = function() {
         let service = e.target.id;
         switch (service) {
             case "webDesign":
-                pictureOfService.style.backgroundImage = 'url("https://andrewbubnov.github.io/andrewbubnov/src/img/web-design.jpg")';
+                pictureOfService.style.backgroundImage = 'url("https://andrewbubnov.github.io/andrewbubnov/img/web-design.jpg")';
                 $('.service-text').load('txt/web-design.txt');
                 break;
             case "graphicDesign":
-                pictureOfService.style.backgroundImage = 'url("https://andrewbubnov.github.io/andrewbubnov/src/img/graphic-design.jpg")';
+                pictureOfService.style.backgroundImage = 'url("https://andrewbubnov.github.io/andrewbubnov/img/graphic-design.jpg")';
                 $('.service-text').load('txt/graphic-design.txt');
                 break;
             case "onlineSupport":
-                pictureOfService.style.backgroundImage = 'url("https://andrewbubnov.github.io/andrewbubnov/src/img/online-support.jpg")';
+                pictureOfService.style.backgroundImage = 'url("https://andrewbubnov.github.io/andrewbubnov/img/online-support.jpg")';
                 $('.service-text').load('txt/online-support.txt');
                 break;
             case "appDesign":
-                pictureOfService.style.backgroundImage = 'url("https://andrewbubnov.github.io/andrewbubnov/src/img/app-design.jpg")';
+                pictureOfService.style.backgroundImage = 'url("https://andrewbubnov.github.io/andrewbubnov/img/app-design.jpg")';
                 $('.service-text').load('txt/app-design.txt');
                 break;
             case "onlineMarketing":
-                pictureOfService.style.backgroundImage = 'url("https://andrewbubnov.github.io/andrewbubnov/src/img/online-marketing.jpg")';
+                pictureOfService.style.backgroundImage = 'url("https://andrewbubnov.github.io/andrewbubnov/img/online-marketing.jpg")';
                 $('.service-text').load('txt/online-marketing.txt');
                 break;
             case "seoService":
-                pictureOfService.style.backgroundImage = 'url("https://andrewbubnov.github.io/andrewbubnov/src/img/seo-ready.jpg")';
+                pictureOfService.style.backgroundImage = 'url("https://andrewbubnov.github.io/andrewbubnov/img/seo-ready.jpg")';
                 $('.service-text').load('txt/seo-service.txt');
                 break;
 
