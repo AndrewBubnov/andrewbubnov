@@ -215,6 +215,7 @@ section{
 }
 .box-wrapper{
     display: flex;
+    width: 100%;
 }
 .box-inner-wrapper{
     display: flex;
@@ -222,7 +223,7 @@ section{
     width: 25%;
 }
 .box{
-    height: 290px;
+    height: 17vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -235,7 +236,6 @@ section{
     background-color: #18cfab;
 }
 .cap{
-    width: 480px;
     height: 7px;
 }
 .green-cap{
