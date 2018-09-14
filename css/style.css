@@ -961,8 +961,8 @@ section{
     display: grid;
     grid-template-columns: 33% 33% 33%;
     grid-gap: 2px;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     position: absolute;
     top: 6650px;
     left: 50%;
