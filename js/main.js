@@ -343,7 +343,7 @@ window.onload = function() {
             $('body, html').animate({
                 scrollTop: $(document).scrollTop() + $(window).height() + 400
             }, 1000);
-        }, 1500);
+        }, 1600);
     });
 
 //****************************************** Modal window ***********************************************
