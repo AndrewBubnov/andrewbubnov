@@ -325,19 +325,25 @@ window.onload = function() {
 
 
 
-    $('#loadMoreGallery').on('click', function () {
-        $(this).remove();
-        for (let i = 0; i < 3; i++) {
-            let newPic = $('<img>').attr('src', 'img/gallery/' + (10 + i) + '.jpg').addClass('grid-item');
-            newPic.insertAfter($($('.masonry-gallery').children().last())[0]);
-            newPic.imagesLoaded().progress(function(imgLoad, image) {
-                $('.masonry-gallery').masonry('appended', $(image.img));
-            });
-        }
-        $('body, html').animate({
-            scrollTop: $(document).scrollTop() + $(window).height() + 400
-        }, 1000);
+   $('#loadMoreGallery').on('click', function () {
+        let button = $(this);
+        button.css('opacity', '0');
+        $('.preloader').removeClass('invisible');
+        setTimeout(function () {
+            $('.preloader').fadeOut();
 
+            for (let i = 0; i < 3; i++) {
+                let newPic = $('<img>').attr('src', 'img/gallery/' + (10 + i) + '.jpg').addClass('grid-item');
+                newPic.insertAfter($($('.masonry-gallery').children().last())[0]);
+                newPic.imagesLoaded().progress(function(imgLoad, image) {
+                    $('.masonry-gallery').masonry('appended', $(image.img));
+                });
+            }
+            button.remove();
+            $('body, html').animate({
+                scrollTop: $(document).scrollTop() + $(window).height() + 400
+            }, 1000);
+        }, 2000);
     });
 
 //****************************************** Modal window ***********************************************
