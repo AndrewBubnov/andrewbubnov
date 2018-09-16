@@ -36,16 +36,15 @@ window.onload = function() {
 
         }
     }
-
 //*******************Smooth scroll*************************************************************
 
-    let scrollLink = $('.nav-item').children(0);
-    scrollLink.on('click', function (e) {
-        e.preventDefault();
-        $('body, html').animate({
-            scrollTop: $(this.hash).offset().top + 40
-        }, 1000);
-    });
+    // let scrollLink = $('.nav-item').children(0);
+    // scrollLink.on('click', function (e) {
+    //     e.preventDefault();
+    //     $('body, html').animate({
+    //         scrollTop: $(this.hash).offset().top + 40
+    //     }, 1000);
+    // });
 
 // ********************Slider section***********************************************************
 
@@ -250,9 +249,9 @@ window.onload = function() {
 
 
     $('#loadMore').on('click', function () {
-        if ($($('#loadMore'))[0].textContent === "+Load more") {
+        if ($(this).text() === "+Load more") {
             for (let i = 0; i < 12; i++) {
-                let newDiv = $('<div></div>');
+                let newDiv = $('<div>');
                 newDiv.on('mouseenter', onWorksHover);
                 newDiv.addClass('works-image').appendTo($('.works-container'));
             }
@@ -262,7 +261,7 @@ window.onload = function() {
                 let endNumber = startNumber + 11;
                 loadNumber++;
                 if (loadNumber === 3) {
-                    $($('#loadMore'))[0].textContent = 'Hide';
+                    $(this).text('Hide');
                 }
                 switch (activeWork) {
                     case ("all"):
@@ -288,24 +287,24 @@ window.onload = function() {
             }
         } else {
             $('.works-image-on-hover').addClass('invisible').appendTo('body');
-            for (let i = $('.works-image').length - 1; i >=12 ; i--) {
-                $($('.works-image'))[i].remove();
+            for (let i = $('.works-image').length - 1; i >= 12 ; i--) {
+                $('.works-image')[i].remove();
             }
             loadNumber = 1;
-            $($('#loadMore'))[0].textContent = '+Load more';
+            $(this).text('+Load more');
             $('body, html').animate({
                 scrollTop: $('#work').offset().top + 80
-            }, 1000);
+            }, 0);
         }
     });
 
     $(worksImage).on('mouseenter', onWorksHover);
 
-    function onWorksHover(e) {
-        let currentImage = e.target.style.backgroundImage;
+    function onWorksHover() {
+        let currentImage = this.style.backgroundImage;
         $('.works-image-on-hover').removeClass('invisible').appendTo($(this));
         let name = currentImage.split("/")[1].split("-").join(" ");
-        $($('.works-image-on-hover-type'))[0].textContent = name[0].toUpperCase() + name.substring(1);
+        $('.works-image-on-hover-type').text(name[0].toUpperCase() + name.substring(1));
     }
 
     $('.works-image-on-hover').on('mouseleave', function () {
@@ -314,6 +313,9 @@ window.onload = function() {
 
 //***************************************** Masonry gallery *********************************************
 
+    masonryLoad();
+
+    function masonryLoad(){
         $('.masonry-gallery').imagesLoaded(function () {
             $('.masonry-gallery').masonry({
                 itemSelector: '.grid-item',
@@ -322,35 +324,71 @@ window.onload = function() {
                 percentPosition: true
             });
         });
+    }
 
+    // $('#loadMoreGallery').on('click', function () {
+    //     $(this).remove();
+    //     for (let i = 0; i < 3; i++) {
+    //         let newPic = $('<img>').attr('src', 'img/gallery/' + (10 + i) + '.jpg').addClass('grid-item');
+    //         newPic.insertAfter($($('.masonry-gallery').children().last())[0]);
+    //         newPic.imagesLoaded().progress(function(imgLoad, image) {
+    //             $('.masonry-gallery').masonry('appended', $(image.img));
+    //         });
+    //     }
+    //     $('body, html').animate({
+    //         scrollTop: $(document).scrollTop() + $(window).height() + 400
+    //     }, 1000);
+    //
+    // });
 
-
-   $('#loadMoreGallery').on('click', function () {
+    $('#loadMoreGallery').on('click', function () {
         let button = $(this);
         button.css('opacity', '0');
-        $('.preloader').removeClass('invisible');
+        $('.preloader').removeClass('invisible').insertBefore($('.footer'));
         setTimeout(function () {
             $('.preloader').fadeOut();
-
             for (let i = 0; i < 3; i++) {
-                let newPic = $('<img>').attr('src', 'img/gallery/' + (10 + i) + '.jpg').addClass('grid-item');
-                newPic.insertAfter($($('.masonry-gallery').children().last())[0]);
-                newPic.imagesLoaded().progress(function(imgLoad, image) {
-                    $('.masonry-gallery').masonry('appended', $(image.img));
-                });
+                let newPic = $('<img>').attr('src', 'img/gallery/' + (7 + i) + '.jpg').addClass('grid-item');
+                newPic.on('click', masonryClick);
+                masonryInsert(newPic, "after");
             }
             button.remove();
-            $('body, html').animate({
-                scrollTop: $(document).scrollTop() + $(window).height() + 400
-            }, 1000);
         }, 1700);
     });
+
+    function masonryInsert(newPic, position){
+        let state = position === "before" ? "prepended" : "appended";
+        if (position === "after") {
+            newPic.insertAfter($('.masonry-gallery').children()[0]);
+        } else newPic.insertBefore($('.masonry-gallery').children()[0]);
+        newPic.imagesLoaded().progress(function(imgLoad, image) {
+            $('.masonry-gallery').masonry(state, $(image.img));
+        });
+    }
+
+    $('.grid-item').on('click', masonryClick);
+    $('.grid-item.big').on('click', masonryClick);
+
+    function masonryClick(){
+        let index = $(this).index('.grid-item');
+        let name = $(this).attr('src');
+        let newPic;
+        if ($(this).hasClass('big')){
+            newPic = $('<img>').attr('src', name.split(".")[0].split("_")[0] + "." + name.split(".")[1]).addClass('grid-item');
+        } else {
+            newPic = $('<img>').attr('src', name.split(".")[0] + "_big." + name.split(".")[1]).addClass('grid-item big');
+        }
+        newPic.on('click', masonryClick);
+        $(this).remove();
+        masonryInsert(newPic, "before");
+        masonryLoad();
+    }
 
 //****************************************** Modal window ***********************************************
 $('.purchase-button').on('click', function () {
     let height = $(window).height();
     let position = $(document).scrollTop() + Math.floor(height/2) - 185;
-    let darkModal = $('<div></div>');
+    let darkModal = $('<div>');
     darkModal.on('click', removeModal);
     darkModal.addClass('dark-modal').css("height", (position + 220 + height/2) + "px").appendTo('body');
     $('.modal').removeClass('invisible').css("transform", "translate(-50%," + position + "px)");

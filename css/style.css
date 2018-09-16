@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+html{
+    scroll-behavior: smooth;
+}
 body {
     font-family: Montserrat, sans-serif;
     width: 100%;
@@ -41,6 +44,7 @@ section{
     -o-background-size: cover;
     height: 1012px;
     width: 100%;
+    max-width: 1920px;
 }
 .nav-inner{
     max-width: 1170px;
@@ -284,7 +288,23 @@ section{
     box-sizing: border-box;
     cursor: pointer;
     user-select: none;
+    position: relative;
  }
+.service-item:hover:after{
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 65px;
+    left: 70px;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #18cfab;
+}
+.service-item:hover{
+    background-color: #18cfab;
+    color: #fff;
+}
 .service-image{
     width: 194px;
     height: 139px;
@@ -744,9 +764,6 @@ section{
     margin-top: 75px;
     width: 1140px;
 }
-/*.grid-item{*/
-    /*height: 100%;*/
-/*}*/
 .grid-item, .grid-sizer{
     width: 31.333%;
     float: left;
@@ -755,6 +772,9 @@ section{
 .gutter-sizer{
     width: 2%;
     float: left;
+}
+.grid-item{
+    cursor: pointer;
 }
 .modal{
     width: 820px;
@@ -934,7 +954,7 @@ section{
 }
 
 .dark-modal{
-    background-color: rgba(0, 0, 0, .6);
+    background-color: rgba(0, 0, 0, .7);
     position: absolute;
     top: 0;
     left: 0;
@@ -964,7 +984,7 @@ section{
     width: 70px;
     height: 70px;
     position: absolute;
-    top: 6650px;
+    top: 6200px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -1008,5 +1028,7 @@ section{
 .invisible{
     display: none;
 }
-
+.big{
+    width: 64.666%;
+}
 
