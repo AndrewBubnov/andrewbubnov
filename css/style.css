@@ -656,8 +656,10 @@ section{
     user-select: none;
 }
 .works-active{
+	background-color: #18cfab;
+	color: #fff;
  }
-.works-active:before{
+/*.works-active:before{
     content: "";
     display: block;
     background-color: #18cfab;
@@ -665,7 +667,7 @@ section{
     height: 3px;
     position: absolute;
     top: -3px;
-}
+}*/
 .works-container{
     /*width: 62.5vw;*/
     margin-top: 6.5vh;
