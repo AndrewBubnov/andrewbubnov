@@ -10,32 +10,33 @@ window.onload = function() {
         let service = e.target.id;
         switch (service) {
             case "webDesign":
-                pictureOfService.style.backgroundImage = 'url("../andrewbubnov/img/web-design.jpg")';
+                pictureOfService.style.backgroundImage = 'url("../src/img/web-design.jpg")';
                 $('.service-text').load('txt/web-design.txt');
                 break;
             case "graphicDesign":
-                pictureOfService.style.backgroundImage = 'url("../andrewbubnov/img/graphic-design.jpg")';
+                pictureOfService.style.backgroundImage = 'url("../src/img/graphic-design.jpg")';
                 $('.service-text').load('txt/graphic-design.txt');
                 break;
             case "onlineSupport":
-                pictureOfService.style.backgroundImage = 'url("../andrewbubnov/img/online-support.jpg")';
+                pictureOfService.style.backgroundImage = 'url("../src/img/online-support.jpg")';
                 $('.service-text').load('txt/online-support.txt');
                 break;
             case "appDesign":
-                pictureOfService.style.backgroundImage = 'url("../andrewbubnov/img/app-design.jpg")';
+                pictureOfService.style.backgroundImage = 'url("../src/img/app-design.jpg")';
                 $('.service-text').load('txt/app-design.txt');
                 break;
             case "onlineMarketing":
-                pictureOfService.style.backgroundImage = 'url("../andrewbubnov/img/online-marketing.jpg")';
+                pictureOfService.style.backgroundImage = 'url("../src/img/online-marketing.jpg")';
                 $('.service-text').load('txt/online-marketing.txt');
                 break;
             case "seoService":
-                pictureOfService.style.backgroundImage = 'url("../andrewbubnov/img/seo-ready.jpg")';
+                pictureOfService.style.backgroundImage = 'url("../src/img/seo-ready.jpg")';
                 $('.service-text').load('txt/seo-service.txt');
                 break;
 
         }
     }
+
 //*******************Smooth scroll*************************************************************
 
     // let scrollLink = $('.nav-item').children(0);
@@ -58,9 +59,10 @@ window.onload = function() {
     let innerWrapper = document.querySelector(".inner-wrapper");
     let employeeName = document.querySelector("#employee-name");
     let employeeRole = document.querySelector("#employee-role");
-    let circle = element[0].firstChild;
-    let image = circle.firstChild;
+    let image = element[0].firstChild;
+    // let image = circle.firstChild;
     let clientWidth = image.clientWidth;
+    let computedWidth = getComputedStyle(image).width;
     let clientHeight = image.clientHeight;
     let viewWidth = (clientWidth + 10) * 3;
     let array = [];
@@ -69,8 +71,8 @@ window.onload = function() {
     innerWrapper.style.height = clientHeight + "px";
     container.style.width = (clientWidth + 10) * element.length + "px";
     container.style.marginLeft = -(clientWidth + 10) * 2 + "px";
-    bigPhoto.style.width = clientWidth + "px";
-    bigPhoto.style.height = clientHeight + "px";
+    bigPhoto.style.width = computedWidth + "px";
+    bigPhoto.style.height = computedWidth + "px";
 
 
     let employee = [["Daria Algernon", "designer"], ["Cleo Dean", "photographer"], ["Ike Giffard", "web-designer"],
@@ -345,6 +347,7 @@ window.onload = function() {
         let button = $(this);
         button.css('opacity', '0');
         $('.preloader').removeClass('invisible').insertBefore($('.footer'));
+        let timeout = $(window).width() < 500 ? 0 : 1700;
         setTimeout(function () {
             $('.preloader').fadeOut();
             for (let i = 0; i < 3; i++) {
@@ -353,7 +356,7 @@ window.onload = function() {
                 masonryInsert(newPic, "after");
             }
             button.remove();
-        }, 1700);
+        }, timeout);
     });
 
     function masonryInsert(newPic, position){
@@ -363,6 +366,12 @@ window.onload = function() {
         } else newPic.insertBefore($('.masonry-gallery').children()[0]);
         newPic.imagesLoaded().progress(function(imgLoad, image) {
             $('.masonry-gallery').masonry(state, $(image.img));
+
+            if ($(window).width() < 500) {
+                $('body, html').animate({
+                    scrollTop: 4000
+                }, 0);
+            }
         });
     }
 
@@ -388,6 +397,7 @@ window.onload = function() {
 $('.purchase-button').on('click', function () {
     let height = $(window).height();
     let position = $(document).scrollTop() + Math.floor(height/2) - 185;
+    if ($(window).width() < 500) position = position + 800;
     let darkModal = $('<div>');
     darkModal.on('click', removeModal);
     darkModal.addClass('dark-modal').css("height", (position + 220 + height/2) + "px").appendTo('body');

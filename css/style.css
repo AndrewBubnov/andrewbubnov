@@ -12,6 +12,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 12px;
 }
 .main{
     width: 100%;
@@ -22,9 +23,9 @@ a{
 }
 
 .main-container{
-    width: 1160px;
-    padding-left: 20px;
-    padding-right: 20px;
+    width: 62.5vw;
+    /*padding-left: 20px;*/
+    /*padding-right: 20px;*/
  }
 .column{
     display: flex;
@@ -42,21 +43,21 @@ section{
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    height: 1012px;
+    height: auto;
     width: 100%;
     max-width: 1920px;
 }
 .nav-inner{
-    max-width: 1170px;
+    max-width: 61%;
 }
-.navbar-brand{
-    display: flex;
-    align-items: center;
-}
+/*.navbar-brand{*/
+    /*display: flex;*/
+    /*align-items: center;*/
+/*}*/
 .logo-container{
     display: flex;
     align-items: center;
-    margin-left: 50px;
+    margin-left: -2vw;
 }
 .logo-name{
     font-family: "Myriad Pro", sans-serif;
@@ -69,8 +70,8 @@ section{
     color: #18cfab;
 }
 .logo{
-    width: 58px;
-    height: 69px;
+    width: 5.37vh;
+    height: 6.2vh;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -78,12 +79,14 @@ section{
 }
 .H{
     position: absolute;
-    font-size: 40px;
+    font-size: 4.2vh;
     font-weight: bold;
     color: white;
+    display: flex;
+    align-items: center;
 }
 .navbar{
-    height: 120px;
+    height: 11vh;
     background-color: rgba(73, 71, 63, .6);
     display: flex;
     align-items: center;
@@ -94,7 +97,7 @@ section{
     top: 0;
 }
 .nav-inner{
-    width: 1170px;
+    width: 61%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -102,11 +105,11 @@ section{
 }
 .fa-search{
     color: #b8b8b8;
-    margin-right: 10px;
+    margin-left: 0.4vw;
     cursor: pointer;
 }
 .navbar-nav{
-    width: 680px;
+    width: 58%;
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -131,7 +134,7 @@ section{
 }
 .nav-link{
     color: #b8b8b8;
-    font-size: 13px;
+    font-size: 1.2em;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -142,11 +145,12 @@ section{
     transform: scale(1, 1);
 }
 .slogan-1 {
-    font-size: 35px;
-    color: rgb( 255, 255, 255 );
+    font-size: 2.9em;
+    color: #fff;
     font-weight: bold;
     text-transform: uppercase;
-    margin-top: 245px;
+    margin-top: 22vh;
+    text-align: center;
 }
 .container{
     width: 100%;
@@ -155,42 +159,38 @@ section{
     flex-direction: column;
     align-items: center;
 }
-.inner-container{
-    width: 1170px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 .slogan-2{
-    font-size: 70px;
+    font-size: 5.8em;
     text-transform: uppercase;
     font-weight: bold;
     color: white;
-    margin-top: 45px;
+    margin-top: 4vh;
+    text-align: center;
 }
 .slogan-3{
-    font-size: 30px;
-    color: rgb( 212, 212, 212 );
-    margin-top: 40px;
+    font-size: 2.5em;
+    color: #d4d4d4;
+    margin-top: 3.5vh;
+    text-align: center;
  }
 .hero-one-buttons{
-    width: 360px;
-    height: 65px;
-    margin-top: 150px;
+    width: 50%;
+    margin-top: 4vw;
+    margin-bottom: 4vw;
     display: flex;
     justify-content: space-between;
 }
 .button{
-    width: 165px;
-    height: 60px;
+    width: 10vw;
+    height: 6vh;
+    min-width: 80px;
     color: white;
     border-radius: 5px;
-    font-size: 13px;
+    font-size: 1.1em;
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
-    line-height: 58px;
+    line-height: 6vh;
     box-shadow: 0 -2px 0 0 white;
     position: relative;
     overflow: hidden;
@@ -202,15 +202,15 @@ section{
     content: "";
     position: absolute;
     top: -2px;
-    left: -60px;
-    height: 70px;
-    width: 50px;
+    left: -36.4%;
+    height: 110%;
+    width: 30%;
     background: linear-gradient(90deg, rgba(255,255,255,.1), rgba(255,255,255,.5));
     transform: skewX(-15deg);
 }
 .button:hover:before{
     transition: .3s;
-    left: 175px;
+    left: 106%;
 }
 .green-button{
     background-color: #18cfab;
@@ -250,53 +250,56 @@ section{
     background-color: white;
 }
 .box-slogan {
-    font-size: 18px;
+    font-size: 1.1em;
     color: #fff;
     font-weight: bold;
     text-transform: uppercase;
-    margin-top: 50px;
+    margin-top: 10%;
+    text-align: center;
 }
 .box-icon{
-    height: 95px;
+    height: 29%;
 }
-.services {
-    font-size: 36px;
-    color: rgb( 78, 78, 78 );
-    margin-top: 85px;
-    position: relative;
-}
+/*.services {*/
+    /*font-size: 225%;*/
+    /*color: rgb( 78, 78, 78 );*/
+    /*margin-top: 8vh;*/
+    /*position: relative;*/
+/*}*/
 .narrow-block{
-    width: 1140px;
+    width: 100%;
     height: 100%;
 }
 .service-menu-list{
-    width: 1140px;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-top: 75px;
-
+    margin-top: 7vh;
 }
 .service-item{
     list-style: none;
-    width: 190px;
-    height: 72px;
+    font-size: 1.2em;
+    width: 16.66666%;
+    height: 7vh;
     background-color: #f8fcfe;
     text-align: center;
-    line-height: 70px;
     border: 1px solid #eeeeef;
     box-sizing: border-box;
     cursor: pointer;
     user-select: none;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
  }
 .service-item:hover:after{
     content: "";
     width: 0;
     height: 0;
     position: absolute;
-    top: 65px;
-    left: 70px;
+    top: 6vh;
+    left: 3.7vw;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
     border-top: 20px solid #18cfab;
@@ -307,29 +310,20 @@ section{
 }
 .service-image{
     width: 194px;
-    height: 139px;
+    height: 100%;
     background-size: cover;
     background: url("../img/web-design.jpg") no-repeat;
 }
 .service-item:hover .service-image{
     opacity: 1;
 }
-.service-link{
-    font-size: 16px;
-    color: rgb( 113, 113, 113 );
-    transition: color .3s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .service-description{
-    width: 1140px;
-    height: 140px;
-    margin-top: 25px;
-    margin-bottom: 100px;
+    width: 100%;
+    height: 13vh;
+    margin-top: 2.3vh;
+    margin-bottom: 9.3vh;
     display: flex;
     justify-content: space-between;
-
 }
 .service-menu:hover{
     background-color: #18cfab;
@@ -337,41 +331,36 @@ section{
 .service-menu:hover .service-link{
     color: white;
 }
-.service-menu:hover::after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 0;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-top: 15px solid #18cfab;
-    transform: translate(80px, 0);
-}
 .service-text{
-    width: 900px;
+    width: 80%;
     text-align: justify;
+    font-size: 1.1em;
 }
-
 .purchase-block{
     background-size: cover;
     background: url("../img/bg-2.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    height: 476px;
     width: 100%;
+    max-width: 1920px;
+}
+.purchase-button{
+    margin-bottom: 5%;
 }
 .ready-slogan {
-    font-size: 40px;
-    margin-top: 125px;
+    font-size: 3.25em;
+    margin-top: 5%;
     color: #18cfab;
     font-weight: bold;
     text-transform: uppercase;
+    text-align: center;
 }
 .ready-slogan-2 {
-    font-size: 16px;
-    color: rgb( 216, 216, 216 );
+    font-size: 1.33em;
+    color: #d8d8d8;
     margin-top: 35px;
+    text-align: center;
 }
 .ready-button{
     margin-top: 75px;
@@ -391,33 +380,33 @@ section{
     transform: translate(12px, 3px);
 }
 .breaking-news {
-    font-size: 36px;
-    color: rgb( 78, 78, 78 );
-    margin-top: 100px;
+    font-size: 3em;
+    color: #4e4e4e;
+    margin-top: 9vh;
+    text-align: center;
 }
 .gallery-block{
-    margin-top: 75px;
-    height: 625px;
+    margin-top: 7vh;
+    height: 65vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 .photo-container{
-    height: 297px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background-color: #f8fcfe;
-    border: 1px solid #ebebeb;
     position: relative;
+    height: 48%;
+    width: 25%;
 }
 .photo-container:hover .photo:before{
     background-color: #18cfab;
 }
 .photo-sign {
     font-size: 19px;
-    color: rgb( 113, 113, 113 );
+    color: #717171;
     font-weight: bold;
 }
 .photo-container:hover .photo-sign{
@@ -427,35 +416,35 @@ section{
     content: "Amazing image post";
     display: block;
     position: absolute;
-    top: 237px;
-    font-size: 19px;
+    top: 75%;
+    font-size: 1vw;
     color: #18cfab;
     font-weight: bold;
+    text-align: center;
 }
 .admin-sign {
     font-size: 15px;
-    color: rgb( 119, 119, 119 );
+    color: #777777;
     margin-bottom: 13px;
 }
 .photo{
-    width: 263px;
-    height: 228px;
+    height: 21.2vh;
     position: relative;
     overflow: hidden;
 }
 .photo:before{
     content: "25 \A Jul";
     white-space: pre;
-    line-height: 32px;
+    line-height: 1.8em;
     color: white;
-    font-size: 16px;
+    font-size: 1.25em;
     text-align: center;
     display: block;
     position: absolute;
-    width: 64px;
-    height: 64px;
-    top: 0;
-    right: 0;
+    width: 24%;
+    height: 30%;
+    top: 1px;
+    right: 1px;
     background-color: #203e38;
 }
 .photo-container:nth-child(2) .photo:before{
@@ -468,7 +457,7 @@ section{
     -moz-background-size: cover;
     -o-background-size: cover;
     width: 100%;
-    height: 853px;
+    max-width: 1920px;
     margin-top: 135px;
 }
 .footer-container{
@@ -479,13 +468,14 @@ section{
     font-size: 36px;
     color: white;
     margin-top: 105px;
+    text-align: center;
 }
 .quotes{
     margin-top: 70px;
 }
 .testimony {
-    width: 1100px;
-    font-size: 16px;
+    width: 100%;
+    font-size: 1.25em;
     color: rgb( 187, 187, 187 );
     text-align: center;
     margin-top: 45px;
@@ -533,11 +523,11 @@ section{
     border-radius: 50%;
     transform: translateX(1px);
 }
-.clip-circle{
-    position: absolute;
-    clip-path: circle(69px at center);
-    transform: translateX(1px);
-}
+/*.clip-circle{*/
+    /*position: absolute;*/
+    /*clip-path: circle(48% at center);*/
+    /*transform: translateX(1px);*/
+/*}*/
 .slider-wrapper{
     height: 470px;
     display: flex;
@@ -591,7 +581,11 @@ section{
 }
 
 .clip-circle{
-    clip-path: circle(89px at center);
+    /*clip-path: circle(48% at center);*/
+    border-radius: 50%;
+    border: 2px solid #18cfab;
+    width: 20vh;
+    max-width: 193px;
 }
 .slider-box{
     height: 100%;
@@ -627,29 +621,32 @@ section{
     to {transform: scale(0);}
 }
 .green-circle {
-    width: 190px;
-    height: 190px;
+    width: 97%;
+    height: 100%;
     border-radius: 50%;
-    background-color: #18cfab;
+    /*background-color: #18cfab;*/
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.green-circle img {
+.slider-box img {
     cursor: pointer;
+    width: 12.7vw;
 }
+
+
 .works-menu{
-    width: 650px;
-    height: 57px;
+    width: 100%;
+    height: 6vh;
     display: flex;
-    margin-top: 70px;
+    margin-top: 7vh;
 }
 .works-tab{
-    width: 130px;
+    width: 20%;
     height: 100%;
     border: 1px solid #ebebeb;
     list-style: none;
-    font-size: 14px;
+    font-size: 1.2em;
     position: relative;
     color: #717171;
     display: flex;
@@ -670,25 +667,26 @@ section{
     top: -3px;
 }
 .works-container{
-    margin-top: 70px;
+    /*width: 62.5vw;*/
+    margin-top: 6.5vh;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 .works-image{
-    width: 284px;
+    width: 24.8%;
     height: 206px;
     margin-bottom: 2px;
 }
 .works-image-on-hover{
-    width: 284px;
+    width: 100%;
     height: 206px;
     background-color: #f8fcfe;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 24px;
+    font-size: 2em;
 }
 
 .works-image-on-hover:before{
@@ -730,11 +728,11 @@ section{
 }
 .circle-on-hover .fa-search{
     color: #fff;
-    font-size: 18px;
-    margin-left: 10px;
+    font-size: 0.9em;
+    margin-left: 1px;
 }
 .works-image-on-hover-slogan {
-    font-size: 24px;
+    font-size: 75%;
     color: #18cfab;
     font-weight: bold;
     text-transform: uppercase;
@@ -762,7 +760,7 @@ section{
 }
 .masonry-gallery{
     margin-top: 75px;
-    width: 1140px;
+    width: 100%;
 }
 .grid-item, .grid-sizer{
     width: 31.333%;
@@ -974,17 +972,17 @@ section{
     align-items: center;
 }
 .copyright {
-    font-size: 14px;
+    font-size: 1em;
     color: #aeaeae;
 }
 .preloader {
     display: grid;
     grid-template-columns: 33% 33% 33%;
     grid-gap: 2px;
-    width: 70px;
-    height: 70px;
+    width: 3.5vw;
+    height: 3.5vw;
     position: absolute;
-    top: 6200px;
+    top: 610%;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -1031,4 +1029,121 @@ section{
 .big{
     width: 64.666%;
 }
+
+
+
+
+
+
+@media screen and (max-width: 480px){
+    #blog, #service, .navbar-nav, .nav-inner .fa.fa-search, .preloader{
+        display: none;
+    }
+    .main-container{
+        width: 100%;
+    }
+    .logo img{
+        height: 10vh;
+    }
+    .H{
+        height: 40px;
+    }
+    .logo-name{
+        margin-left: 15px;
+    }
+    .slogan-1{
+        font-size: 1.5em;
+    }
+    .slogan-2{
+        font-size: 2.5em;
+    }
+    .slogan-3{
+        font-size: 2em;
+    }
+    .hero-one-buttons{
+        width: 70%;
+        margin-top: 10vw;
+    }
+    .button{
+        width: 20vw;
+        font-size: 0.7em;
+    }
+    .box-slogan{
+        font-size: 0.7em;
+    }
+    .purchase-block{
+        margin-top: 30px;
+    }
+    .ready-slogan{
+        font-size: 1.8em;
+    }
+    .works-menu{
+        flex-wrap: wrap;
+        margin-bottom: 45px;
+    }
+    .works-menu #all{
+        width: 100%;
+    }
+    .works-menu #graphic-design, .works-menu #web-design, .works-menu #landing-page, .works-menu #wordpress{
+        width: 50%;
+    }
+    .works-menu #all{
+        width: 100%;
+    }
+    .works-image{
+        width: 49.6%;
+        height: 150px;
+    }
+    .works-image-on-hover{
+        width: 100%;
+        height: 150px;
+    }
+    .works-image-hover-inner{
+        width: 90px;
+        margin-top: 20px;
+    }
+    .works-image-on-hover-slogan{
+        font-size: 60%;
+        margin-top: 20px;
+    }
+    .footer-img{
+        margin-top: 30px;
+    }
+    .people-say{
+        margin-top: 10px;
+    }
+    .slider-box img {
+        cursor: pointer;
+        width: 20vw;
+    }
+    .slider-wrapper{
+        height: 270px;
+        margin-top: 5px;
+    }
+    .employee{
+        font-size: 5vw;
+    }
+    .masonry-gallery{
+        margin-left: 2%;
+    }
+    .footer{
+        height: 30px;
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+    .ready-button{
+        margin-top: 20px;
+    }
+    .modal{
+        zoom: 0.38;
+    }
+}
+
+
+
+
+
+
+
+
 
