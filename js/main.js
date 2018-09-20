@@ -1,6 +1,11 @@
 window.onload = function() {
 
 //***********************Our services section**************************************************
+    let services = document.querySelector(".service-menu-list");
+    let pictureOfService = document.querySelector(".service-image");
+
+    $('.service-menu-list').on('click', changePictureOfService);
+
      function changePictureOfService(e) {
         let service = e.target.id;
         switch (service) {
@@ -55,7 +60,6 @@ window.onload = function() {
     let employeeName = document.querySelector("#employee-name");
     let employeeRole = document.querySelector("#employee-role");
     let image = element[0].firstChild;
-    // let image = circle.firstChild;
     let clientWidth = image.clientWidth;
     let computedWidth = getComputedStyle(image).width;
     let clientHeight = image.clientHeight;
@@ -74,6 +78,13 @@ window.onload = function() {
         ["Anderson Kiera", "photographer"], ["Mansel Greyson", "developer"], ["Pam Kaylynn", "project manager"],
         ["Jayson Kev", "team leader"]];
 
+    let testimony = $('.testimony');
+    let testimonyWidth = parseInt(getComputedStyle(testimony[0]).width);
+    let testimonialCenter = Math.floor(testimony.length/2);
+    let testimonyStartPosition = - testimonialCenter*testimonyWidth;
+    for (let i = 0; i < testimony.length; i++) {
+        testimony[i].style.transform = "translateX(" + (testimonyStartPosition + i*testimonyWidth) + "px)";
+    }
 
     for (let i = 0; i < element.length; i++) {
         element[i].style.width = clientWidth + "px";
@@ -90,12 +101,20 @@ window.onload = function() {
         for (let i = 0; i < element.length; i++) {
             element[i].style.display = "";
         }
+        for (let i = 0; i < 8; i++) {
+            let testimonyCurrentStyle = testimony[i].style;
+            if (testimony[i].style.transform === "translateX(" + ( - testimonialCenter*testimonyWidth) + "px)"){
+                testimony[i].style.transform = "translateX(" + ((testimonialCenter - 1)*testimonyWidth) + "px)";
+            } else {
+                let testimonyPrevious = parseInt(testimonyCurrentStyle.transform.match(/\-?\d/g).join(""));
+                testimony[i].style.transform = "translateX(" + (testimonyPrevious - testimonyWidth) + "px)";
+            }
+        }
         for (let i = element.length - 1; i >= 0; i--) {
             let currentStyle = element[i].style;
             scaled(i, currentStyle, 2);
             if (array[i] === element.length - 1) {
                 array[i] = 0;
-                element[i].style.transform = "";
                 element[i].style.display = "none";
                 element[i].style.transform = "translateX(0px)";
             } else {
@@ -104,15 +123,25 @@ window.onload = function() {
                 element[i].style.transform = "translateX(" + (previous + clientWidth + 10) + "px)";
             }
         }
-    });
+    })
 
 
     rightButton.addEventListener('click', function () {
         for (let i = 0; i < element.length; i++) {
             element[i].style.display = "";
         }
+        for (let i = 0; i < 8; i++) {
+            let testimonyCurrentStyle = testimony[i].style;
+            if (testimony[i].style.transform === "translateX(" + ((testimonialCenter - 1)*testimonyWidth) + "px)"){
+                testimony[i].style.transform = "translateX(" + ( - testimonialCenter*testimonyWidth) + "px)";
+            } else {
+                let testimonyPrevious = parseInt(testimonyCurrentStyle.transform.match(/\-?\d/g).join(""));
+                testimony[i].style.transform = "translateX(" + (testimonyPrevious + testimonyWidth) + "px)";
+            }
+        }
         for (let i = element.length - 1; i >= 0; i--) {
             let currentStyle = element[i].style;
+            let testimonyCurrentStyle = testimony[i].style;
             scaled(i, currentStyle, 4);
             if (array[i] === 0) {
                 array[i] = element.length - 1;
@@ -323,21 +352,6 @@ window.onload = function() {
         });
     }
 
-    // $('#loadMoreGallery').on('click', function () {
-    //     $(this).remove();
-    //     for (let i = 0; i < 3; i++) {
-    //         let newPic = $('<img>').attr('src', 'img/gallery/' + (10 + i) + '.jpg').addClass('grid-item');
-    //         newPic.insertAfter($($('.masonry-gallery').children().last())[0]);
-    //         newPic.imagesLoaded().progress(function(imgLoad, image) {
-    //             $('.masonry-gallery').masonry('appended', $(image.img));
-    //         });
-    //     }
-    //     $('body, html').animate({
-    //         scrollTop: $(document).scrollTop() + $(window).height() + 400
-    //     }, 1000);
-    //
-    // });
-
     $('#loadMoreGallery').on('click', function () {
         let button = $(this);
         button.css('opacity', '0');
@@ -406,6 +420,24 @@ function removeModal() {
     $(this).remove();
     $('.modal').addClass('invisible');
     }
+
+//***************************************** Hamburger ******************************************************
+    let hamburger = document.querySelector('.hamburger');
+    let first = document.querySelector('#one');
+    let second = document.querySelector('#two');
+    let third = document.querySelector('#three');
+    let menuItem = document.querySelector(".menu-item");
+    hamburger.addEventListener('click', function () {
+        first.classList.toggle('first-start');
+        first.classList.toggle('first');
+        third.classList.toggle('third-start');
+        third.classList.toggle('third');
+        second.classList.toggle('second');
+        menuItem.classList.toggle('menu-active');
+    });
+
+//**********************************************************************************************************
+
 }
 
 
