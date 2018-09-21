@@ -97,6 +97,9 @@ window.onload = function() {
         } else circle.classList.add("centered-scaled");
     }
 
+    let shown = true;
+    show(3);
+
     leftButton.addEventListener('click', function () {
         clearInterval(aplay);
         leftMove();
@@ -128,6 +131,7 @@ window.onload = function() {
                 element[i].style.transform = "translateX(" + (previous + clientWidth + 10) + "px)";
             }
         }
+        show(array.indexOf(3));
     }
 
     rightButton.addEventListener('click', function(){
@@ -150,7 +154,6 @@ window.onload = function() {
         }
         for (let i = element.length - 1; i >= 0; i--) {
             let currentStyle = element[i].style;
-            let testimonyCurrentStyle = testimony[i].style;
             scaled(i, currentStyle, 4);
             if (array[i] === 0) {
                 array[i] = element.length - 1;
@@ -163,6 +166,7 @@ window.onload = function() {
                 element[i].style.transform = "translateX(" + (previous - clientWidth - 10) + "px)";
             }
         }
+        show(array.indexOf(3));
     }
 
     function scaled(i, currentStyle, n) {
@@ -176,7 +180,6 @@ window.onload = function() {
         }
     }
 
-    let shown = false;
     for (let i = 0; i < element.length; i++) {
         element[i].addEventListener("click", function () {
 
@@ -193,9 +196,7 @@ window.onload = function() {
             image.classList.add("common-scaled");
 
             if (shown === true) {
-                let currentPhoto = parseInt(bigPhoto.innerHTML.match(/\d/g).join(""));
-
-                if (currentPhoto !== i + 1) {
+                if (array[i] !== 3){
                     show(i);
                 } else {
                     minify();
@@ -225,7 +226,7 @@ window.onload = function() {
     }
 
     function show(i) {
-        bigPhoto.innerHTML = "<div class='green-circle enlarge'><img class='clip-circle ' src = 'img/employee-photo-" + (i + 1) + ".jpg'></div>";
+        bigPhoto.innerHTML = "<div class='fadein'><img class='clip-circle' src = 'img/employee-photo-" + (i + 1) + ".jpg'></div>";
         employeeName.innerHTML = employee[i][0];
         employeeRole.innerHTML = employee[i][1];
         shown = true;
@@ -236,6 +237,7 @@ window.onload = function() {
             leftMove();
         }, 3000);
     }
+
     autoPlay();
 
 // *************************Our amazing works section*******************************************
