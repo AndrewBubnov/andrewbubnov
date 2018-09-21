@@ -98,6 +98,11 @@ window.onload = function() {
     }
 
     leftButton.addEventListener('click', function () {
+        clearInterval(aplay);
+        leftMove();
+    });
+
+    function leftMove(){
         for (let i = 0; i < element.length; i++) {
             element[i].style.display = "";
         }
@@ -123,10 +128,14 @@ window.onload = function() {
                 element[i].style.transform = "translateX(" + (previous + clientWidth + 10) + "px)";
             }
         }
-    })
+    }
 
+    rightButton.addEventListener('click', function(){
+        clearInterval(aplay);
+        rightMove();
+    });
 
-    rightButton.addEventListener('click', function () {
+    function rightMove() {
         for (let i = 0; i < element.length; i++) {
             element[i].style.display = "";
         }
@@ -154,7 +163,7 @@ window.onload = function() {
                 element[i].style.transform = "translateX(" + (previous - clientWidth - 10) + "px)";
             }
         }
-    });
+    }
 
     function scaled(i, currentStyle, n) {
         let image = element[i].firstChild;
@@ -221,6 +230,13 @@ window.onload = function() {
         employeeRole.innerHTML = employee[i][1];
         shown = true;
     }
+    let aplay;
+    function autoPlay() {
+        aplay = setInterval(function () {
+            leftMove();
+        }, 3000);
+    }
+    autoPlay();
 
 // *************************Our amazing works section*******************************************
 
