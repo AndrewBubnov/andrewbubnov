@@ -405,8 +405,10 @@ window.onload = function() {
 //****************************************** Modal window ***********************************************
 $('.purchase-button').on('click', function () {
     let height = $(window).height();
-    let position = $(document).scrollTop() + Math.floor(height/2) - 185;
-    if ($(window).width() < 500) position = position + 800;
+    let position;
+    if ($(window).width() < 500) {
+        position = ($(document).scrollTop() + Math.floor(height / 2)) / 0.38 - 140;
+    } else position = $(document).scrollTop() + Math.floor(height / 2) - 185;
     let darkModal = $('<div>');
     darkModal.on('click', removeModal);
     darkModal.addClass('dark-modal').css("height", (position + 220 + height/2) + "px").appendTo('body');
