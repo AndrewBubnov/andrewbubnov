@@ -1136,6 +1136,12 @@ section{
     .works-menu #graphic-design, .works-menu #web-design, .works-menu #landing-page, .works-menu #wordpress{
         width: 50%;
     }
+    .works-active{
+    	background-color: #18cfab;
+    	color: #fff;
+    }
+    .works-active:before{
+    }
     .works-menu #all{
         width: 100%;
     }
