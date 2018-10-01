@@ -1141,6 +1141,7 @@ section{
     	color: #fff;
     }
     .works-active:before{
+    	content: none;
     }
     .works-menu #all{
         width: 100%;
